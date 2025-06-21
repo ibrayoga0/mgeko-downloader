@@ -1,15 +1,15 @@
 # 🚀 Mgeko Manga Downloader V3
 
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/ibrayoga0/mgeko-downloader)
-[![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)](https://github.com/ibrayoga0/mgeko-downloader)
+[![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](https://github.com/ibrayoga0/mgeko-downloader)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-**Professional manga downloader with multi-language support** - Download manga from Mgeko easily with a beautiful CLI interface.
+**Professional Windows manga downloader with multi-language support** - Download manga from Mgeko easily with a beautiful CLI interface.
 
 ## ✨ Features
 
 - 🌍 **Multi-Language Support**: English, Indonesian, Japanese, Spanish
-- 🚀 **Standalone Executable**: No Python installation required
+- 🚀 **Windows Executable**: No Python installation required
 - 📱 **Professional CLI**: Beautiful, user-friendly interface
 - 🔄 **Smart Resume**: Continue interrupted downloads
 - 📝 **Detailed Logging**: Track all download activities
@@ -33,27 +33,28 @@ Choice: _
 
 ## 🚀 Quick Start
 
-### Download & Run
+### Download & Install
 
 1. Go to [Releases](https://github.com/ibrayoga0/mgeko-downloader/releases)
-2. Download the latest executable for your platform:
-   - Windows: `mgeko-downloader-v3.0.0-windows.exe`
-   - macOS: `mgeko-downloader-v3.0.0-macos`
-   - Linux: `mgeko-downloader-v3.0.0-linux`
+2. Download: `mgeko-downloader-v3.0.0-windows.exe` 
 3. Run the executable directly - no installation required!
+
+## � System Requirements
+
+- **OS**: Windows 10/11 (64-bit)
+- **RAM**: 512MB minimum
+- **Storage**: 50MB + space for manga downloads
+- **Internet**: Stable connection required
 
 ## 💡 Usage
 
-### Interactive Mode
+### How to Use
 
 Simply run the executable:
 
 ```bash
-# Using executable (Windows)
+# Double-click the file OR run from command line:
 mgeko-downloader-v3.0.0-windows.exe
-
-# Using executable (Linux/macOS)
-./mgeko-downloader-v3.0.0-linux
 ```
 
 The application will guide you through:
@@ -110,13 +111,13 @@ downloads/
 - **日本語 (Japanese)** - Full support
 - **Español (Spanish)** - Full support
 
-##  Performance Statistics
+## 📊 Performance
 
 - **Download Speed**: Up to 50+ images per minute
-- **Memory Usage**: < 100MB typical
+- **Memory Usage**: < 100MB typical  
 - **Success Rate**: 99%+ with retry mechanism
+- **File Size**: ~7MB executable
 - **Supported Formats**: JPG, PNG, WebP
-- **Concurrent Downloads**: Optimized for stability
 
 ## 🔧 Troubleshooting
 
@@ -137,7 +138,7 @@ downloads/
 
 **4. Permission Errors**
 - Ensure write permissions to download directory
-- Run as administrator if necessary (Windows)
+- Run as administrator if necessary
 
 ### Getting Help
 
@@ -145,7 +146,7 @@ downloads/
 2. Review the log file: `mgeko_downloader.log`
 3. Create a new issue with:
    - Error message
-   - Operating system
+   - Windows version
    - URL you're trying to download
    - Log file contents
 
@@ -154,10 +155,11 @@ downloads/
 We welcome contributions! Here's how you can help:
 
 1. **Bug Reports**: Submit detailed bug reports with reproduction steps
-2. **Feature Requests**: Suggest new features or improvements
-3. **Code Contributions**: Submit pull requests with bug fixes or new features
-4. **Translations**: Help add support for more languages
-5. **Documentation**: Improve documentation and examples
+2. **Feature Requests**: Suggest new features or improvements  
+3. **Translations**: Help add support for more languages
+4. **Documentation**: Improve documentation and examples
+
+> **Note**: This is a Windows-only release. For other platforms, please create a feature request.
 
 ## 📄 License
 
@@ -176,11 +178,11 @@ This tool is for educational and personal use only. Please respect copyright law
 ## 📞 Support
 
 - **GitHub Issues**: [Report bugs or request features](https://github.com/ibrayoga0/mgeko-downloader/issues)
-- **Email**: [Contact the developer](mailto:support@mgeko-downloader.dev)
+- **Email**: [Contact the developer](mailto:ibrayoga890@gmail.com)
 - **Documentation**: [Full documentation](https://github.com/ibrayoga0/mgeko-downloader/wiki)
 
 ---
 
-**Made with ❤️ by manga enthusiasts, for manga enthusiasts**
+**Made with ❤️ for Windows manga enthusiasts**
 
 ⭐ **Star this repository if you find it useful!** ⭐
