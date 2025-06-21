@@ -1,0 +1,52 @@
+# 🔒 PRIVATE - Source code (for GitHub Actions build only)
+mgeko_downloader_cli.py
+requirements.txt
+*.py
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.coverage
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Logs
+*.log
+logs/
+
+# Development
+.env
+.envrc
+temp/
+downloads/
+
+# Keep only public files:
+# README.md
+# LICENSE
+# CHANGELOG.md
+# QUICK_START.md
+# .github/workflows/
+# mgeko-downloader-*.exe (releases)

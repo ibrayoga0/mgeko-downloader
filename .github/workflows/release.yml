@@ -1,0 +1,115 @@
+name: 🚀 Build and Release Multi-Platform
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags like v3.0.0, v3.1.0, etc.
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  build:
+    name: Build ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            platform: windows
+            ext: .exe
+            python-version: '3.10'
+          - os: ubuntu-latest
+            platform: linux
+            ext: ''
+            python-version: '3.10'
+          - os: macos-latest
+            platform: macos
+            ext: ''
+            python-version: '3.10'
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🐍 Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: 📦 Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4 lxml pyinstaller
+
+    - name: 🔨 Build executable
+      run: |
+        pyinstaller --onefile --name mgeko-downloader-v3.0.0-${{ matrix.platform }}${{ matrix.ext }} mgeko_downloader_cli.py
+
+    - name: 📋 List build output
+      run: |
+        ls -la dist/
+      shell: bash
+
+    - name: 📤 Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: mgeko-downloader-${{ matrix.platform }}
+        path: dist/mgeko-downloader-v3.0.0-${{ matrix.platform }}${{ matrix.ext }}
+
+  release:
+    name: 🎉 Create Release
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 📥 Download all artifacts
+      uses: actions/download-artifact@v3
+
+    - name: 📋 List downloaded files
+      run: |
+        find . -name "mgeko-downloader-*" -type f
+
+    - name: 🎯 Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          mgeko-downloader-windows/mgeko-downloader-v3.0.0-windows.exe
+          mgeko-downloader-linux/mgeko-downloader-v3.0.0-linux
+          mgeko-downloader-macos/mgeko-downloader-v3.0.0-macos
+        name: 🚀 Mgeko Downloader V${{ github.ref_name }}
+        body: |
+          ## 🎉 Mgeko Manga Downloader V${{ github.ref_name }}
+          
+          ### ✨ What's New
+          - 🌍 Multi-language support (EN, ID, JA, ES)
+          - 🚀 Standalone executables for all platforms
+          - 📱 Professional CLI interface
+          - 🔄 Smart resume functionality
+          - 🛡️ Robust error handling
+          
+          ### 📥 Downloads
+          Choose the version for your operating system:
+          
+          | Platform | File | Size |
+          |----------|------|------|
+          | 🪟 Windows | `mgeko-downloader-v3.0.0-windows.exe` | ~7MB |
+          | 🐧 Linux | `mgeko-downloader-v3.0.0-linux` | ~7MB |
+          | 🍎 macOS | `mgeko-downloader-v3.0.0-macos` | ~7MB |
+          
+          ### 🚀 Quick Start
+          1. Download the file for your platform
+          2. Run the executable directly
+          3. Follow the interactive prompts
+          4. Enjoy your manga! 📚
+          
+          ### 🆘 Support
+          - 📖 Check [README.md](README.md) for detailed usage
+          - 🐛 Report issues on [GitHub Issues](https://github.com/ibrayoga0/mgeko-downloader/issues)
+          
+          ---
+          **Made with ❤️ for manga lovers worldwide**
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
